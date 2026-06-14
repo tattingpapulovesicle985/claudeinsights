@@ -4,6 +4,17 @@ All notable changes to ClaudeInsights are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/); this project
 uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- **Live demo** hosted on GitHub Pages — explore the real interactive dashboard
+  (synthetic data) with no install.
+
+### Fixed
+- Running a flag without an explicit subcommand (e.g. `claudeinsights --logs PATH`
+  or `claudeinsights -o out.html`) no longer crashes with an argparse error; it now
+  correctly defaults to the `dashboard` command. Regression-tested.
+
 ## [0.1.0] — 2026-06-13
 
 First public release.

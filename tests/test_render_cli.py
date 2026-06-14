@@ -76,6 +76,23 @@ def test_cli_missing_logs_returns_2(tmp_path):
     assert main(["dashboard", "--logs", str(empty)]) == 2
 
 
+def test_cli_defaults_to_dashboard_without_subcommand(logdir, tmp_path):
+    # `claudeinsights --logs X -o Y` (no explicit `dashboard`) must work, not crash
+    out = tmp_path / "default.html"
+    rc = main(["--logs", str(logdir), "-o", str(out)])
+    assert rc == 0
+    assert out.exists()
+
+
+def test_cli_version_flag_without_subcommand(capsys):
+    # bare --version must hit the top-level parser, not be swallowed by dashboard
+    import pytest
+    with pytest.raises(SystemExit) as ei:
+        main(["--version"])
+    assert ei.value.code == 0
+    assert "claudeinsights" in capsys.readouterr().out
+
+
 def test_selftest_passes():
     from claudeinsights.selftest import run_selftest
     assert run_selftest() == 0

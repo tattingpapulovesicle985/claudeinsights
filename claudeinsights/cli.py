@@ -123,14 +123,20 @@ def _force_utf8() -> None:
             pass
 
 
+_SUBCOMMANDS = {"dashboard", "report", "json", "selftest"}
+_TOP_LEVEL = _SUBCOMMANDS | {"-h", "--help", "--version"}
+
+
 def main(argv=None) -> int:
     _force_utf8()
+    argv = list(sys.argv[1:] if argv is None else argv)
+    # `dashboard` is the default command: if the first token isn't a known
+    # subcommand (or a top-level flag), assume the user meant `dashboard ...`
+    # so `claudeinsights --open` and `claudeinsights -o out.html` just work.
+    if not argv or argv[0] not in _TOP_LEVEL:
+        argv = ["dashboard"] + argv
     ap = build_parser()
-    args, _unknown = ap.parse_known_args(argv)
-    if not getattr(args, "cmd", None):
-        # default to dashboard with default flags
-        ns = ap.parse_args(["dashboard"] + (argv or sys.argv[1:]))
-        return ns.func(ns)
+    args = ap.parse_args(argv)
     return args.func(args)
 
 

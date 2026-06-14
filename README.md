@@ -14,12 +14,16 @@ Turn your raw session logs into a beautiful, private, deterministic picture of y
 ![100% local](https://img.shields.io/badge/data-100%25%20local-orange.svg)
 ![No telemetry](https://img.shields.io/badge/telemetry-none-success.svg)
 
+### **[▶ Try the live demo](https://ingridtoulotte.github.io/claudeinsights/)** &nbsp;·&nbsp; [⚡ Install](#-install) &nbsp;·&nbsp; [🔒 How it's private](#-trust-is-the-product) &nbsp;·&nbsp; [📐 How metrics work](docs/METRICS.md)
+
 ```bash
 pipx install git+https://github.com/ingridtoulotte/claudeinsights
 claudeinsights --open
 ```
 
-<img src="docs/img/hero.png" alt="ClaudeInsights dashboard — KPI cards and insight feed" width="100%">
+<a href="https://ingridtoulotte.github.io/claudeinsights/"><img src="docs/img/hero.png" alt="ClaudeInsights dashboard — KPI cards and insight feed" width="100%"></a>
+
+<sub>👆 This is a real, clickable dashboard — **[open the live demo](https://ingridtoulotte.github.io/claudeinsights/)** (synthetic data, no install).</sub>
 
 </div>
 
@@ -46,7 +50,40 @@ time — without a single byte leaving your machine.
 
 All rendered into **one self-contained HTML file**. No server, no build step, no CDN — open it offline, forever.
 
+## ⏱️ 60 seconds to your first insight
+
+No dashboard to host, no account to make. One command reads your existing logs and
+prints this — or pass `--open` to get the full HTML dashboard instead:
+
+```text
+$ claudeinsights report
+
+  ◐ ClaudeInsights  — See how you actually use Claude.
+  2026-05-15 → 2026-06-13  ·  66 sessions  ·  28 active days
+
+  Total spend    $178.68  (cache saved $321.24)
+  Tokens         45.66M  in 163.54K · out 851.40K · cache-read 36.48M
+  Prompts        266  ·  796 assistant turns
+  Tool calls     1.14K
+
+  Projects (by tokens)
+    ██████████████████████  api-gateway      17.52M  38%
+    ██████████████████····  web-dashboard    14.07M  31%
+    ███████████···········  ml-pipeline       8.87M  19%
+    ███████···············  infra             5.20M  11%
+
+  Insights
+    💰  Most of your spend went to claude-opus-4-8: $158.13 (88% of $178.68).
+    ⚡  Prompt caching saved you about $321.24 — 36.48M tokens served from cache.
+    🔥  Your busiest day was 2026-06-03 — 6.46M tokens over 5 sessions.
+    🛠️  Your most-used tool is Read with 340 calls.
+```
+
+<sub>Output from the bundled synthetic demo. Run it on your own logs with just `claudeinsights report`.</sub>
+
 ## 📸 The dashboard
+
+> **[▶ Click here to explore the full interactive dashboard](https://ingridtoulotte.github.io/claudeinsights/)** — it's a real HTML file, not a video. The screenshots below are stills from it.
 
 <img src="docs/img/charts.png" alt="Activity heatmap and daily token trend" width="100%">
 
